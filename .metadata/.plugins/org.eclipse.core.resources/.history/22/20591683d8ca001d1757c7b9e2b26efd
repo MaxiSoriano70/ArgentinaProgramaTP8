@@ -1,0 +1,41 @@
+package modelos;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class TestDescuentoFijo {
+
+	private Compra carrito;
+	
+	@BeforeEach
+	public void serUp() {
+		carrito=new Compra();
+	}
+	
+	@Test
+	void test() {
+		int i=0;
+		for(String linea:Files.readAllLines(Paths.get("src\\archivos\\items.txt"))) {
+			//System.out.println(linea);
+			String nombre=linea.split(";")[0];
+			int cantidad=Integer.parseInt(linea.split(";")[1]);
+			double precio=Double.parseDouble(linea.split(";")[2]);
+			Producto prod=new Producto(nombre,precio);
+			Item item=new Item(prod,cantidad);
+			carrito.getItems()[i]=item;
+			i++;
+			System.out.println("Total de "+prod.getNombre()+": "+item.calcularTotal());
+		}
+		System.out.println("Total de la compra sin Descuento: "+carrito.calcularTotalCompra());
+		IDescuento descuento=new DescuentoConTopeReintegro(carrito.getTotal(),20,200);
+		carrito.setDescuento(descuento);
+		carrito.aplicarDescuento();
+		System.out.println("Total de la compra con Descuento: "+carrito.getTotal());
+	}
+
+}

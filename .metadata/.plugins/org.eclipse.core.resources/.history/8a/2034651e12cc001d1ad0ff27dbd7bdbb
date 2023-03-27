@@ -1,0 +1,10 @@
+package Exceptions;
+
+import modelos.IDescuento;
+
+public class ExceptionDescuento extends Exception {
+	
+	private IDescuento descuento;
+	
+	
+}

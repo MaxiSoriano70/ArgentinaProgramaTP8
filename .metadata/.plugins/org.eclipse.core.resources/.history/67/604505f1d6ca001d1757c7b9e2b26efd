@@ -1,0 +1,54 @@
+package modelos;
+
+public class DescuentoConTopeReintegro implements IDescuento{
+
+	private double monto;
+	private double procentaje;
+	private int topeDeReintegro;
+	
+	public DescuentoConTopeReintegro(double monto, double procentaje, int topeDeReintegro) {
+		super();
+		this.monto = monto;
+		this.procentaje = procentaje;
+		this.topeDeReintegro = topeDeReintegro;
+	}
+
+	public double getMonto() {
+		return monto;
+	}
+
+	public void setMonto(double monto) {
+		this.monto = monto;
+	}
+
+	public double getProcentaje() {
+		return procentaje;
+	}
+
+	public void setProcentaje(double procentaje) {
+		this.procentaje = procentaje;
+	}
+
+	public int getTopeDeReintegro() {
+		return topeDeReintegro;
+	}
+
+	public void setTopeDeReintegro(int topeDeReintegro) {
+		this.topeDeReintegro = topeDeReintegro;
+	}
+
+	@Override
+	public double calcularDecuento() {
+		double montoConDescuento=0;
+		double aux=this.getMonto()-(this.getMonto()*this.getProcentaje()/100);
+		if(aux>this.getTopeDeReintegro()) {
+			montoConDescuento=this.monto-this.topeDeReintegro;
+		}
+		else {
+			montoConDescuento=aux;
+		}
+		return montoConDescuento;
+	}
+	
+	
+}

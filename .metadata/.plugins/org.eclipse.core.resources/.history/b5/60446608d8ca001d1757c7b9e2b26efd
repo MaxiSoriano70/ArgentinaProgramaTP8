@@ -1,0 +1,22 @@
+package modelos;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class TestDescuentoFijo {
+
+private Compra objCompraTest;
+	
+	@BeforeEach
+	public void serUp() {
+		objCompraTest=new Compra();
+	}
+	
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

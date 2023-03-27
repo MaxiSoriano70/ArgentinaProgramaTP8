@@ -1,0 +1,6 @@
+package modelos;
+
+public interface IDescuento {
+	private double monto;
+	public double calcularDecuento();
+}

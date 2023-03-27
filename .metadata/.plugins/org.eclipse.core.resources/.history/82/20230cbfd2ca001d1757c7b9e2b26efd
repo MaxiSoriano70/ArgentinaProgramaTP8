@@ -1,0 +1,27 @@
+package modelos;
+
+public class DescuentoFijo implements IDescuento{
+	private double monto;
+	private int descuentoFijo;
+
+	public DescuentoFijo(int descuentoFijo) {
+		super();
+		this.descuentoFijo = descuentoFijo;
+	}
+
+	public int getDescuentoFijo() {
+		return descuentoFijo;
+	}
+
+	public void setDescuentoFijo(int descuentoFijo) {
+		this.descuentoFijo = descuentoFijo;
+	}
+
+	@Override
+	public double calcularDecuento() {
+		double aux=this.monto-this.descuentoFijo
+		return ;
+	}
+	
+	
+}

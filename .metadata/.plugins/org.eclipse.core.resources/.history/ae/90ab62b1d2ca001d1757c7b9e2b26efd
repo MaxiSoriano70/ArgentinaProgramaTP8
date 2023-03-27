@@ -1,0 +1,7 @@
+package modelos;
+
+public class DescuentoFijo {
+	private int descuentoFijo;
+	private double descuentoPorcentaje;
+	privatye
+}
